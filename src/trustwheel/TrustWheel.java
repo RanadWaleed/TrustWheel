@@ -15,6 +15,14 @@ public class TrustWheel {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("welcom to TrustWheel Applcation");
+        InputValidator validator = new InputValidator();
+        int passengers = validator.getPassengers();
+        int days = validator.getRentalDays();
+        double miles = validator.getMileage();
+
+        new RentialSystem().run(passengers, days, miles);
+
     }
-    
+
 }

@@ -29,7 +29,8 @@ public class Car_Database {
         carsList.add(new Car("BMW M5", "Sedan", RentalTier.INTERMEDIATE, 18.0 ));
         carsList.add(new Car("Ram 1500 Quad Cab", "Truck", RentalTier.STANDARD,22.0));
         carsList.add(new Car("Toyota Camry", "Hybrid", RentalTier.INTERMEDIATE, 51.0 ));
-        carsList.add(new Car("Lexus LC ", "cope", RentalTier.ECONOMY,18.0 ));
+        carsList.add(new Car("Lexus LC ", "Coupe", RentalTier.ECONOMY,18.0 ));
+        carsList.add(new Car("Ford Mustang ", "coupe", RentalTier.ECONOMY,23.0 ));
         carsList.add(new Car("Chrysler Pacifica", "Van/Minivan", RentalTier.VAN, 22.0));
     }
 
@@ -41,7 +42,7 @@ public class Car_Database {
     }
 
     public List<Car> getAllCars() {
-        return carsList;
-    }
+    return java.util.Collections.unmodifiableList(carsList); 
+   }
 }
 

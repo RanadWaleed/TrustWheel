@@ -8,12 +8,12 @@ package trustwheel;
  *
  * @author ASUS
  */
-public enum RentalTier {
+    public enum RentalTier {
     
     ECONOMY(45.0,4 ,"poor"),
-    INTERMEDIATE(50.0, 4 , "Medium"),
-    STANDARD(55.0,5,"Good"),
-    VAN(70.0,7,"medium");
+    INTERMEDIATE(50.0, 4 , "medium"),
+    STANDARD(55.0,5,"good"),
+     VAN( 70.0,7,"medium");
 
     private final double dailyRate;
     private final int maxPassengers;

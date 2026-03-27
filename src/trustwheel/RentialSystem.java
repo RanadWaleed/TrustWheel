@@ -8,6 +8,6 @@ package trustwheel;
  *
  * @author ASUS
  */
-public class System {
+public class RentialSystem {
     
 }
