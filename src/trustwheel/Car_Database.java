@@ -22,17 +22,17 @@ public class Car_Database {
     private Car_Database() {
         carsList = new ArrayList<>();
         
-        carsList.add(new Car("Honda CR-V ", "SUV", RentalTier.STANDARD, 30.0));
-        carsList.add(new Car("Nissan Rogue", "Crossover", RentalTier.STANDARD,  33.0));
-        carsList.add(new Car("Hyundai Tucson", "Crossover", RentalTier.STANDARD,28.0));
-        carsList.add(new Car("BMW 7 Series", "Sedan", RentalTier.INTERMEDIATE,28.0));
-        carsList.add(new Car("BMW M5", "Sedan", RentalTier.INTERMEDIATE, 18.0 ));
-        carsList.add(new Car("Ram 1500 Quad Cab", "Truck", RentalTier.STANDARD,22.0));
-        carsList.add(new Car("Toyota Camry", "Hybrid", RentalTier.INTERMEDIATE, 51.0 ));
-        carsList.add(new Car("Lexus LC ", "Coupe", RentalTier.ECONOMY,18.0 ));
-        carsList.add(new Car("Ford Mustang ", "coupe", RentalTier.ECONOMY,23.0 ));
-        carsList.add(new Car("Chrysler Pacifica", "Van/Minivan", RentalTier.VAN, 22.0));
-    }
+     carsList.add(new Car("SUV ", "Honda CR-V", RentalTier.STANDARD, 30.0));
+        carsList.add(new Car("Crossover", "Nissan Rogue", RentalTier.STANDARD,  33.0));
+        carsList.add(new Car("Crossover", "Hyundai Tucson", RentalTier.STANDARD,28.0));
+        carsList.add(new Car("Sedan", "BMW 7 Series", RentalTier.INTERMEDIATE,28.0));
+        carsList.add(new Car("Sedan", "BMW M5", RentalTier.INTERMEDIATE, 18.0 ));
+        carsList.add(new Car("Truck", "Ram 1500 Quad Cab", RentalTier.STANDARD,22.0));
+        carsList.add(new Car("Hybrid", "Toyota Camry", RentalTier.INTERMEDIATE, 51.0 ));
+        carsList.add(new Car("Coupe ", "Lexus LC", RentalTier.ECONOMY,18.0 ));
+        carsList.add(new Car("Coupe ", "Ford Mustang", RentalTier.ECONOMY,23.0 ));
+        carsList.add(new Car("Van/Minivan", "Chrysler Pacifica", RentalTier.VAN, 22.0));
+     }
 
     public static Car_Database getInstance() {
         if (instance == null) {

@@ -14,8 +14,14 @@ public class TrustWheel {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("welcom to TrustWheel Applcation");
+        
+        System.out.println("*********************************************************************************");
+        System.out.println("             -  WELCOME TO THE TRUSTWHEEL APPLICATION!-                  ");
+        System.out.println("         -> Here you can find the best offers for rental cars!     ");
+        System.out.println(" NOTE: Our cars are carefully selected with special attention to your comfort <3\n");
+        System.out.println(" ******************************************************************************** \n");
+
+
         InputValidator validator = new InputValidator();
         int passengers = validator.getPassengers();
         int days = validator.getRentalDays();
