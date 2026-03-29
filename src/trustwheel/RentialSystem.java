@@ -7,20 +7,15 @@ package trustwheel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ASUS
- */
 public class RentialSystem {
-  
 
-    public void run (int passengers, int days, double miles) {
+    public void run(int passengers, int days, double miles) {
         
         List<Car> allCars = Car_Database.getInstance().getAllCars();
         List<Car> currentCars = filterByPassengers(allCars, passengers);
 
         if (currentCars.isEmpty()) {
-            System.out.println("\n  Sorry, no car fits " + passengers + " passengers ");
+            System.out.println("\n  Sorry no car fits " + passengers + " passengers ");
             return;
         }
 
@@ -28,8 +23,9 @@ public class RentialSystem {
         double lowestCost = Double.MAX_VALUE;
 
         for (Car car : currentCars) {
-            
-            double currentCost = TotalCost(car, days, miles);
+            double[] costs = TotalCost(car, days, miles);
+            // here the number 2 is for the total cost 
+            double currentCost = costs[2]; 
             
             if (currentCost < lowestCost) {
                 lowestCost = currentCost;
@@ -51,20 +47,24 @@ public class RentialSystem {
             }
         }
 
-        System.out.println("\n              === Best Car(s) for Your Trip : ===         ");
-        System.out.println("          ---------------------------------------------   ");
+        System.out.println("\n              === Best Car(s) for Your Trip : ===");
+        System.out.println("    --------------------------------------------------------");
         
         for (Car car : bestCars) {
-            
-            System.out.println("Make and Model: " + car.getCategrie()); 
-            System.out.println("Max Passengers: " + car.getTier().getMaxPassengers());
-            System.out.printf("Total Cost: $%.2f\n", lowestCost);
-            System.out.println("------------------------------------------------------------");
-            System.out.println("************************************************************");
+            double[] results = TotalCost(car, days, miles);
+            double rentalPrice = results[0];
+            double gasPrice = results[1];
+            double totalPrice = results[2];
 
+   
+            System.out.println("Car make and Model: " + car.getModel()); 
+            System.out.println("Max Passengers: " + car.getTier().getMaxPassengers());
+            System.out.printf("Rental Price : $%.2f\n", rentalPrice);
+            System.out.printf("Gas Price    : $%.2f\n", gasPrice );
+            System.out.printf("Total Cost   : $%.2f\n", totalPrice);
+            System.out.println("------------------------------------------------------------");
         }
     }
-    
 
     private List<Car> filterByPassengers(List<Car> cars, int passengers) {
         List<Car> potentialCars = new ArrayList<>();
@@ -76,19 +76,22 @@ public class RentialSystem {
         return potentialCars;
     }
 
-    private double TotalCost(Car car, int days, double miles) {
-        double rentalCost = car.getTier().getDailyRate() * days;
-        double gasCost = (miles / car.getMPG()) * 2.25;
-        return rentalCost + gasCost;
+    // we make it in array to return more than one value 
+    private double[] TotalCost(Car car, int days, double miles) {
+        
+        double rental = car.getTier().getDailyRate() * days;
+        double gas = (miles / car.getMPG()) * 2.25;
+        double total = rental + gas;
+        
+        return new double[]{rental, gas, total};
     }
 
     private int ComfortScore(String comfortLevel) {
-        
         switch (comfortLevel.toLowerCase()) {
             case "poor": return 1;
             case "medium": return 2;
             case "good": return 3;
-            default: return 0;
+            default: return  0;
         }
     }
 }
