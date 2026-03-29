@@ -48,7 +48,7 @@ public class RentialSystem {
         }
 
         System.out.println("\n              === Best Car(s) for Your Trip : ===");
-        System.out.println("    --------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------");
         
         for (Car car : bestCars) {
             double[] results = TotalCost(car, days, miles);
@@ -57,8 +57,10 @@ public class RentialSystem {
             double totalPrice = results[2];
 
    
-            System.out.println("Car make and Model: " + car.getModel()); 
+            System.out.print("Car Make: " + car.getmake()); 
+            System.out.println("   Model: " + car.getModel());
             System.out.println("Max Passengers: " + car.getTier().getMaxPassengers());
+            System.out.println("______________________________________________________________");
             System.out.printf("Rental Price : $%.2f\n", rentalPrice);
             System.out.printf("Gas Price    : $%.2f\n", gasPrice );
             System.out.printf("Total Cost   : $%.2f\n", totalPrice);
